@@ -1,0 +1,83 @@
+// ============================================================
+// Testimonials
+// ============================================================
+
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $sp-3;
+
+  @include md {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include lg {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.review-card {
+  background: $white;
+  border: 1px solid $border-light;
+  border-radius: $r-lg;
+  padding: $sp-4;
+  display: flex;
+  flex-direction: column;
+  gap: $sp-3;
+  transition: transform $t-base, box-shadow $t-base;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 32px rgba($charcoal, 0.07);
+  }
+}
+
+.review-card__stars {
+  color: $gold;
+  font-size: 1.0625rem;
+  letter-spacing: 2px;
+}
+
+.review-card blockquote {
+  font-size: 0.9875rem;
+  color: $charcoal;
+  line-height: 1.75;
+  flex: 1;
+}
+
+.review-card__author {
+  display: flex;
+  align-items: center;
+  gap: $sp-2;
+  padding-top: $sp-2;
+  border-top: 1px solid $border-light;
+
+  strong {
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: $charcoal;
+  }
+
+  span {
+    display: block;
+    font-size: 0.8125rem;
+    color: $muted;
+    margin-top: 1px;
+  }
+}
+
+.review-card__avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, $gold-light, $gold);
+  color: $charcoal;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}

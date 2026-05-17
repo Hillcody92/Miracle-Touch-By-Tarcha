@@ -1,0 +1,195 @@
+// ============================================================
+// Gallery
+// ============================================================
+
+.gallery__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $sp-1;
+  justify-content: center;
+  margin-bottom: $sp-6;
+}
+
+.gallery__filter {
+  padding: 0.5rem 1.25rem;
+  border-radius: $r-full;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: $muted;
+  background: transparent;
+  border: 1.5px solid $border-light;
+  cursor: pointer;
+  transition: all $t-base;
+
+  &:hover {
+    border-color: $gold;
+    color: $gold-dark;
+  }
+
+  &.is-active {
+    background: $gold;
+    border-color: $gold;
+    color: $charcoal;
+    font-weight: 600;
+  }
+}
+
+// Grid
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  grid-auto-rows: 220px;
+
+  @include md {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    grid-auto-rows: 260px;
+  }
+
+  @include lg {
+    grid-auto-rows: 300px;
+  }
+}
+
+.gallery__item {
+  position: relative;
+  overflow: hidden;
+  border-radius: $r-md;
+  cursor: pointer;
+  background: $warm-white;
+
+  &--tall {
+    grid-row: span 2;
+  }
+
+  &--wide {
+    grid-column: span 2;
+  }
+
+  &.is-hidden {
+    display: none;
+  }
+
+  img {
+    @include cover;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.06);
+  }
+
+  &:hover .gallery__overlay {
+    opacity: 1;
+  }
+}
+
+.gallery__overlay {
+  @include cover;
+  background: linear-gradient(to top, rgba($near-black, 0.75) 0%, transparent 60%);
+  display: flex;
+  align-items: flex-end;
+  padding: $sp-3;
+  opacity: 0;
+  transition: opacity $t-base;
+
+  span {
+    font-family: $font-heading;
+    font-size: 1rem;
+    font-weight: 600;
+    color: $white;
+    letter-spacing: 0.03em;
+  }
+}
+
+// Footer
+.gallery__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $sp-3;
+  margin-top: $sp-8;
+  text-align: center;
+
+  p {
+    color: $muted;
+    font-size: 0.9375rem;
+  }
+}
+
+// ============================================================
+// Lightbox
+// ============================================================
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $sp-4;
+
+  &[hidden] { display: none; }
+}
+
+.lightbox__close {
+  position: absolute;
+  top: $sp-4;
+  right: $sp-4;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba($white, 0.1);
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba($white, 0.2);
+  transition: background $t-fast, transform $t-fast;
+  z-index: 1;
+
+  &:hover {
+    background: rgba($white, 0.2);
+    transform: rotate(90deg);
+  }
+}
+
+.lightbox__figure {
+  position: relative;
+  z-index: 1;
+  max-width: min(90vw, 900px);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $sp-2;
+}
+
+.lightbox__img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: $r-md;
+  box-shadow: 0 24px 80px rgba($near-black, 0.6);
+}
+
+.lightbox__caption {
+  color: rgba($white, 0.7);
+  font-family: $font-heading;
+  font-style: italic;
+  font-size: 0.9375rem;
+}
+
+.lightbox__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 199;
+  background: rgba($near-black, 0.92);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  &[hidden] { display: none; }
+}

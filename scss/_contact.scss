@@ -1,0 +1,151 @@
+// ============================================================
+// Contact
+// ============================================================
+
+.contact__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $sp-8;
+
+  @include lg {
+    grid-template-columns: 1fr 1fr;
+    gap: $sp-12;
+    align-items: start;
+  }
+}
+
+.contact__lead {
+  font-size: 1.0625rem;
+  color: $muted;
+  line-height: 1.75;
+  margin: $sp-3 0 $sp-6;
+}
+
+.contact__list {
+  display: flex;
+  flex-direction: column;
+  gap: $sp-4;
+}
+
+.contact__item {
+  display: flex;
+  gap: $sp-3;
+  align-items: flex-start;
+
+  strong {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $muted;
+    margin-bottom: 4px;
+  }
+
+  a {
+    font-size: 1rem;
+    color: $charcoal;
+    font-weight: 500;
+    transition: color $t-fast;
+    word-break: break-word;
+
+    &:hover { color: $gold-dark; }
+  }
+}
+
+.contact__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: $r-md;
+  background: rgba($gold, 0.08);
+  color: $gold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+// Hours list
+.contact__hours {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+
+  li {
+    display: flex;
+    gap: $sp-3;
+    font-size: 0.9375rem;
+    color: $charcoal;
+
+    span:first-child {
+      min-width: 90px;
+      color: $muted;
+      font-size: 0.9rem;
+    }
+
+    &.is-closed {
+      span { color: rgba($muted, 0.6); }
+      span:last-child { font-style: italic; }
+    }
+  }
+}
+
+// Booking card
+.contact__book {
+  @include lg { padding-top: $sp-12; }
+}
+
+.contact__book-card {
+  background: $charcoal;
+  color: $white;
+  border-radius: $r-xl;
+  padding: $sp-6;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $sp-3;
+
+  @include lg { padding: $sp-8; }
+
+  h3 {
+    font-family: $font-heading;
+    font-size: 1.625rem;
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 1rem;
+    color: rgba($white, 0.65);
+    line-height: 1.7;
+    max-width: 340px;
+  }
+}
+
+.contact__book-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba($gold, 0.12);
+  color: $gold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba($gold, 0.25);
+}
+
+.contact__book-note {
+  font-size: 0.84rem !important;
+  color: rgba($white, 0.45) !important;
+  margin-top: -$sp-1;
+
+  a {
+    color: $gold-light;
+    font-weight: 500;
+    transition: color $t-fast;
+
+    &:hover { color: $gold; }
+  }
+}

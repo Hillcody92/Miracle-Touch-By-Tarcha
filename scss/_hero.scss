@@ -1,0 +1,204 @@
+// ============================================================
+// Hero
+// ============================================================
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  background: $near-black url('../images/gallery/braidinghero.png') center center / cover no-repeat;
+  overflow: hidden;
+  padding-top: $nav-h;
+
+  // Dark overlay for text legibility over the photo
+  &::after {
+    content: '';
+    @include cover;
+    background: linear-gradient(
+      135deg,
+      rgba($near-black, 0.82) 0%,
+      rgba($near-black, 0.65) 50%,
+      rgba($near-black, 0.5) 100%
+    );
+    z-index: 1;
+  }
+}
+
+// Background orbs (sit above the ::after overlay)
+.hero__bg {
+  @include cover;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hero__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+
+  &--1 {
+    width: 600px;
+    height: 600px;
+    top: -150px;
+    right: -100px;
+    background: radial-gradient(circle, rgba($gold, 0.12) 0%, transparent 70%);
+  }
+
+  &--2 {
+    width: 400px;
+    height: 400px;
+    bottom: -100px;
+    left: -80px;
+    background: radial-gradient(circle, rgba($gold, 0.07) 0%, transparent 70%);
+  }
+}
+
+// Layout
+.hero__container {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $sp-8;
+  padding-top: $sp-8;
+  padding-bottom: $sp-8;
+
+  @include lg {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding-top: $sp-12;
+    padding-bottom: $sp-12;
+  }
+}
+
+// Content
+.hero__eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $gold;
+  margin-bottom: $sp-3;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: $gold;
+    vertical-align: middle;
+    margin-right: 0.75rem;
+    opacity: 0.7;
+  }
+}
+
+.hero__headline {
+  font-family: $font-heading;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: $white;
+  margin-bottom: $sp-4;
+
+  em {
+    font-style: italic;
+    color: $gold;
+    display: block;
+  }
+}
+
+.hero__sub {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  color: rgba($white, 0.65);
+  line-height: 1.75;
+  max-width: 480px;
+  margin-bottom: $sp-6;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $sp-2;
+}
+
+// Decorative visual (desktop only)
+.hero__visual {
+  display: none;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  max-width: 420px;
+  margin: 0 auto;
+
+  @include lg { display: block; }
+}
+
+.hero__ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba($gold, 0.2);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: spin-slow linear infinite;
+
+  &--outer {
+    width: 400px;
+    height: 400px;
+    animation-duration: 40s;
+  }
+
+  &--mid {
+    width: 280px;
+    height: 280px;
+    border-color: rgba($gold, 0.3);
+    animation-duration: 28s;
+    animation-direction: reverse;
+  }
+
+  &--inner {
+    width: 170px;
+    height: 170px;
+    border-color: rgba($gold, 0.5);
+    background: radial-gradient(circle, rgba($gold, 0.08) 0%, transparent 70%);
+    animation-duration: 18s;
+  }
+}
+
+.hero__initials {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: $font-heading;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: rgba($gold, 0.5);
+  letter-spacing: 0.08em;
+  user-select: none;
+}
+
+// Scroll cue
+.hero__scroll {
+  position: absolute;
+  bottom: $sp-6;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $sp-1;
+  color: rgba($white, 0.4);
+  z-index: 3;
+  transition: color $t-base;
+
+  &:hover { color: $gold; }
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, rgba($white, 0.4));
+}

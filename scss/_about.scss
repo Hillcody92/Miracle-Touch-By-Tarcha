@@ -1,0 +1,137 @@
+// ============================================================
+// About
+// ============================================================
+
+.about__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $sp-8;
+  align-items: center;
+
+  @include lg {
+    grid-template-columns: 1fr 1fr;
+    gap: $sp-12;
+  }
+}
+
+// Visual / photo area
+.about__visual {
+  display: flex;
+  justify-content: center;
+
+  @include lg { justify-content: flex-start; }
+}
+
+.about__frame {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.about__photo-placeholder {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: linear-gradient(145deg, #1C1409 0%, #2C1F08 60%, #1A1A1A 100%);
+  border-radius: $r-lg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid rgba($gold, 0.15);
+
+  span {
+    font-family: $font-heading;
+    font-size: clamp(6rem, 15vw, 10rem);
+    font-weight: 700;
+    color: rgba($gold, 0.18);
+    user-select: none;
+    line-height: 1;
+  }
+}
+
+// When a real photo replaces the placeholder
+.about__photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: $r-lg;
+}
+
+.about__badge {
+  position: absolute;
+  bottom: -$sp-3;
+  right: -$sp-3;
+  background: $gold;
+  color: $charcoal;
+  border-radius: $r-md;
+  padding: $sp-2 $sp-3;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba($charcoal, 0.2);
+  min-width: 110px;
+
+  @include md {
+    bottom: $sp-4;
+    right: -$sp-4;
+  }
+
+  strong {
+    display: block;
+    font-family: $font-heading;
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  small {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-top: 2px;
+    opacity: 0.8;
+  }
+}
+
+// Content
+.about__content {
+  @include lg { padding-left: $sp-4; }
+}
+
+.about__text {
+  color: $muted;
+  line-height: 1.8;
+  margin-bottom: $sp-3;
+  font-size: 1.0625rem;
+
+  &:last-of-type { margin-bottom: $sp-6; }
+}
+
+// Stats row
+.about__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $sp-2;
+  padding-top: $sp-4;
+  border-top: 1px solid $border-light;
+}
+
+.about__stat {
+  text-align: center;
+
+  @include md { text-align: left; }
+
+  strong {
+    display: block;
+    font-family: $font-heading;
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: $gold;
+    line-height: 1.1;
+  }
+
+  span {
+    display: block;
+    font-size: 0.8125rem;
+    color: $muted;
+    margin-top: 4px;
+  }
+}

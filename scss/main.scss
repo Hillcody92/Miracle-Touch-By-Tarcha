@@ -1,0 +1,18 @@
+// ============================================================
+// Miracle Touch by Tarcha — Main Stylesheet
+// Compile: sass --watch scss/main.scss css/main.css --style=compressed
+// ============================================================
+
+@use 'sass:color';
+
+@import 'variables';
+@import 'reset';
+@import 'animations';
+@import 'nav';
+@import 'hero';
+@import 'about';
+@import 'services';
+@import 'gallery';
+@import 'testimonials';
+@import 'contact';
+@import 'footer';
