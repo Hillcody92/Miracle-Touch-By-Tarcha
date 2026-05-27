@@ -1,0 +1,117 @@
+// ============================================================
+// Booking Information
+// ============================================================
+
+// Welcome banner
+.booking__welcome {
+  background: linear-gradient(135deg, rgba($gold, 0.08) 0%, rgba($gold, 0.03) 100%);
+  border: 1px solid rgba($gold, 0.22);
+  border-radius: $r-lg;
+  padding: $sp-4 $sp-6;
+  text-align: center;
+  margin-bottom: $sp-8;
+  font-size: 1.0625rem;
+  color: $charcoal;
+  line-height: 1.7;
+}
+
+// Card grid
+.booking__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $sp-3;
+
+  @include md {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include lg {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// Individual card
+.booking-card {
+  background: $white;
+  border: 1px solid $border-light;
+  border-radius: $r-lg;
+  padding: $sp-4;
+  display: flex;
+  flex-direction: column;
+  gap: $sp-2;
+}
+
+.booking-card__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: $r-md;
+  background: rgba($gold, 0.08);
+  color: $gold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.booking-card__title {
+  font-family: $font-heading;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: $charcoal;
+  line-height: 1.3;
+  margin-top: $sp-1;
+}
+
+.booking-card__body {
+  font-size: 0.9375rem;
+  color: $muted;
+  line-height: 1.75;
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+
+    li {
+      position: relative;
+      padding-left: 1rem;
+
+      &::before {
+        content: '·';
+        color: $gold;
+        font-weight: 700;
+        position: absolute;
+        left: 0;
+        top: 0;
+        line-height: inherit;
+      }
+    }
+  }
+
+  strong {
+    color: $charcoal;
+    font-weight: 600;
+  }
+
+  .booking-card__note {
+    margin-top: $sp-2;
+    padding: 0.75rem $sp-2;
+    background: rgba($gold, 0.07);
+    border-left: 3px solid $gold;
+    border-radius: 0 $r-sm $r-sm 0;
+    font-size: 0.875rem;
+    color: $charcoal;
+    line-height: 1.65;
+  }
+
+  a {
+    color: $gold-dark;
+    font-weight: 500;
+    transition: color $t-fast;
+    word-break: break-word;
+
+    &:hover { color: $gold; }
+  }
+}
