@@ -140,8 +140,6 @@
   inset: 0;
   background: rgba($near-black, 0.6);
   z-index: 98;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
 
   &.is-active { display: block; }
 }
